@@ -1,0 +1,26 @@
+﻿
+<div class="container-fluid">
+
+    <div class="row-fluid">
+        <div class="col-xs-2">
+            <ul class="nav nav-stacked nav-pills">
+                <li class="nav-header">
+                    功能列表
+                </li>
+                <tabset vertical="true" type="pills">
+                    <tab> <tab-heading><span class="glyphicon glyphicon-home"></span>首页</tab-heading></tab>
+                    <tab ui-sref=".Register"><tab-heading><span class="glyphicon glyphicon-list-alt"></span>成绩登记表</tab-heading></tab>
+
+                    <tab ui-sref=".Report"><tab-heading><span class="glyphicon glyphicon-signal"></span>成绩报表</tab-heading></tab>
+
+                </tabset>
+            </ul>
+        </div>
+        <div class="col-xs-10">
+            <div ui-view="" />
+
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,78 @@
+﻿<form class="form-horizontal" ng-controller="Student_Edit" name="Student">
+
+    <div><h2 class="text-center">{{Submit}}学生</h2></div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">学生号：</label>
+        <div class="col-sm-9">
+
+            <input ng-model="SNO" onkeyup="this.value=this.value.replace(/\D/g,'')" ng-change="find()" ng-disabled="isUpdate" class="form-control" name="SNO" required placeholder="学生号(学生号前自动加S)" id="Text1" type="text" />
+            <p ng-class="{ 'alert alert-danger' : Student.SNO.$invalid && !Student.SNO.$pristine }" ng-show="Student.SNO.$invalid && !Student.SNO.$pristine" class="help-block">You 学生号 is required.</p>
+            <p ng-class="{ 'alert alert-danger' : isSNO }" ng-show="isSNO" class="help-block">该学生号已存在.</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2">学生名：</label>
+        <div class="col-sm-9 ">
+
+            <input ng-model="SName" class="form-control" name="SName" required placeholder="学生名" id="Text1" type="text" />
+            <p ng-class="{ 'alert alert-danger' : Student.SName.$invalid && !Student.SName.$pristine }" ng-show="Student.SName.$invalid && !Student.SName.$pristine" class="help-block">You 学生名 is required.</p>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">性别：</label>
+        <div class="col-sm-9 ">
+            <select id="Select1" ng-model="SSex">
+                <option value="男">男</option>
+                <option value="女">女</option>
+
+            </select>
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" >出生日期：</label>
+        <div class="col-sm-9 ">
+            <section style="display:inline-block; min-height:240px;">
+                <input ng-model="SBrithday" id="Text1" type="text" />
+                <datepicker ng-model="SBrithday" show-weeks="true" class="wellwell-sm"></datepicker>
+            </section> 
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">入学成绩：</label>
+        <div class="col-sm-9 ">
+            <input ng-model="SGrade" onkeyup="this.value=this.value.replace(/\D/g,'')" class="form-control" placeholder="入学成绩" id="Text1" type="text" />
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">入学年份：</label>
+        <div class="col-sm-9 ">
+            <input ng-model="SYear" onkeyup="this.value=this.value.replace(/\D/g,'')" name="SYear" class="form-control" required placeholder="入学年份" id="Text1" type="text" />
+            <p ng-class="{ 'alert alert-danger' : Student.SYear.$invalid && !Student.SYear.$pristine }" ng-show="Student.SYear.$invalid && !Student.SYear.$pristine" class="help-block">You 入学年份 is required.</p>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">所属班级：</label>
+        <div class="col-sm-9">
+            <select class="form-control"
+                    name="CLNO"
+                    ng-model="Class"
+                    ng-options="x.CLNO as x.CLName for x in dataset"></select>
+            <p ng-class="{ 'alert alert-danger' : !issCLNO}" ng-show="!issCLNO" class="help-block">You 所属班级 is required.</p>
+
+
+        </div>
+    </div>
+    <div class="form-group text-center">
+        <button type="button" ng-model="Submit" ng-click="submit()" ng-disabled="Student.$invalid||isSNO||!issCLNO" class="btn btn-default btn-lg">{{Submit}}</button>
+    </div>
+
+</form>

@@ -1,0 +1,84 @@
+﻿<form class="form-horizontal" ng-controller="Teacher_Edit" name="Teacher">
+
+    <div><h2 class="text-center">{{Submit}}教师</h2></div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">教师号：</label>
+        <div class="col-sm-9">
+
+            <input ng-model="TNO" ng-change="find()" onkeyup="this.value=this.value.replace(/\D/g,'')" ng-disabled="isUpdate" class="form-control" name="TNO" required placeholder="教师号(教师号前自动加S)" id="Text1" type="text" />
+            <p ng-class="{ 'alert alert-danger' : Teacher.TNO.$invalid && !Teacher.TNO.$pristine }" ng-show="Teacher.TNO.$invalid && !Teacher.TNO.$pristine" class="help-block">You 教师号 is required.</p>
+            <p ng-class="{ 'alert alert-danger' : isTNO }" ng-show="isTNO" class="help-block">该教师号已存在.</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2">教师名：</label>
+        <div class="col-sm-9 ">
+
+            <input ng-model="TName" class="form-control" name="TName" required placeholder="教师名" id="Text1" type="text" />
+            <p ng-class="{ 'alert alert-danger' : Teacher.TName.$invalid && !Teacher.TName.$pristine }" ng-show="Teacher.TName.$invalid && !Teacher.TName.$pristine" class="help-block">You 教师名 is required.</p>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">性别：</label>
+        <div class="col-sm-9 ">
+            <select id="Select1" ng-model="TSex">
+                <option value="男">男</option>
+                <option value="女">女</option>
+
+            </select>
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">出生日期：</label>
+        <div class="col-sm-9 ">
+            <section style="display:inline-block; min-height:240px;">
+                <input ng-model="TBrithday" id="Text1" type="text" />
+                <datepicker ng-model="TBrithday" show-weeks="true" class="wellwell-sm"></datepicker>
+            </section>
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">所属系别：</label>
+        <div class="col-sm-9">
+            <select class="form-control"
+                    name="DNO"
+                    ng-model="Department"
+                    ng-options="x.DNO as x.DName for x in dataset"></select>
+            <p ng-class="{ 'alert alert-danger' : !issDNO}" ng-show="!issDNO" class="help-block">You 所属系别 is required.</p>
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">职称</label>
+        <div class="col-sm-9 ">
+            <select id="Select1" ng-model="TTitle">
+                <option value="教授">教授</option>
+                <option value="副教授">副教授</option>
+                <option value="普通教师">普通教师</option>
+
+            </select>
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">专业及教学方向：</label>
+        <div class="col-sm-9 ">
+            
+            <textarea id="TextArea1" rows="3" cols="20" ng-model="TIntroduction" name="TIntroduction" class="form-control"  placeholder="专业及教学方向"></textarea>
+
+        </div>
+    </div>
+    
+    <div class="form-group text-center">
+        <button type="button" ng-model="Submit" ng-click="submit()" ng-disabled="Teacher.$invalid||isTNO||!issDNO" class="btn btn-default btn-lg">{{Submit}}</button>
+    </div>
+
+</form>

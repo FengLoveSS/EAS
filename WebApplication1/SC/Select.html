@@ -1,0 +1,88 @@
+﻿<div ng-controller="Select">
+    <div class="form-group row">
+
+        <div class="col-sm-4"> </div>
+        <div class="col-sm-2">
+            <label class="control-label">选课学生所属系：</label>
+            <select class="form-control"
+                    name="DNO"
+                    ng-model="Department"
+                    ng-options="x.DNO as x.DName for x in dataset_Department" ng-change="select_Student(1);select_Course(1);"></select>
+            
+
+
+        </div>
+        <div class="col-sm-2">
+            <label class="control-label">学生所属入学年份：</label>
+            <select class="form-control"
+                    name=""
+                    ng-model="SYear"
+                    ng-options="x.SYear as x.SYear for x in dataset_SYear" ng-change="select_Student(1)"></select>
+
+
+
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+            <table class="table-striped table-bordered">
+                <th width="10%">学生号</th>
+                <th width="20%">学生名</th>
+                <th width="10%">性别</th>
+                <th width="20%">出生日期</th>
+                <th width="10%">入学成绩</th>
+                <th width="10%">入学年份</th>
+                <th width="10%">所在班</th>
+                <th width="10%">操作</th>
+                <tr ng-repeat="x in dataset_Student">
+                    <td>{{x.SNO}}</td>
+                    <td>{{x.SName}}</td>
+                    <td>{{x.SSex}}</td>
+                    <td>{{x.SBrithday}}</td>
+                    <td>{{x.SGrade}}</td>
+                    <td>{{x.SYear}}</td>
+                    <td>{{x.CLName}}</td>
+                    <td><input ng-click="CheckIn_Student($event,x.SNO)" class="icheckbox_flat-red" type="checkbox" /></td>
+                </tr>
+            </table>
+            <div>
+                当前第{{page_Student}}页   <span><a ng-show="page_Student>1" ng-click="select_Student(page_Student=(page_Student-1))">上一页</a></span><span><a ng-show="page_Student<maxPage_Student&&maxPage_Student>1" ng-click="select_Student(page_Student=(page_Student+1))">下一页</a></span>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <table class="table-striped table-bordered">
+                <th width="10%">课程号</th>
+                <th width="10%">课程名称</th>
+                <th width="10%">任课老师名称</th>
+                <th width="5%">学时</th>
+                <th width="5%">学分</th>
+                <th width="10%">上课时间</th>
+                <th width="10%">上课学期</th>
+                <th width="10%">上课地点</th>
+                <th width="10%">考试时间</th>
+                <th width="10%">操作</th>
+                <tr ng-repeat="x in dataset_Course">
+                    <td>{{x.CNO}}</td>
+                    <td>{{x.CName}}</td>
+                    <td>{{x.TName}}</td>
+                    <td>{{x.CHours}}</td>
+                    <td>{{x.CCredit}}</td>
+                    <td>{{x.CTime}}</td>
+                    <td>{{x.CSemester}}</td>
+                    <td>{{x.CPlace}}</td>
+                    <td>{{x.CExamTime}}</td>
+                    <td><input ng-click="CheckIn_Course($event,x.CNO)" class="icheckbox_flat-red" type="checkbox" /></td>
+                </tr>
+            </table>
+            <div>
+                当前第{{page_Course}}页   <span><a ng-show="page_Course>1" ng-click="select_Course(page_Course=(page_Course-1))">上一页</a></span><span><a ng-show="page_Course<maxPage_Course&&maxPage_Course>1" ng-click="select_Course(page_Course=(page_Course+1))">下一页</a></span>
+            </div>
+        </div>
+            <div class="col-sm-1"></div>
+        </div>
+    <div class="form-group text-center">
+        <button type="button"  ng-click="submit()"  class="btn btn-default btn-lg">选课</button>
+    </div>
+</div>

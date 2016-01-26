@@ -1,0 +1,53 @@
+﻿<form class="form-horizontal" ng-controller="Score_Edit" name="SC">
+
+    <div><h2 class="text-center">修改成绩</h2></div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">学生号：</label>
+        <div class="col-sm-9">
+
+            <input ng-model="SNO" ng-change="find()" ng-disabled="true" class="form-control" name="SNO" required placeholder="学生号(学生号前自动加S)" id="Text1" type="text" />
+            
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2">课程号：</label>
+        <div class="col-sm-9 ">
+
+            <input ng-model="CNO" class="form-control" ng-disabled="true" name="CNO" required placeholder="课程号" id="Text1" type="text" />
+            
+
+        </div>
+    </div>
+    
+    
+    <div class="form-group">
+        <label class="control-label col-sm-2">平时成绩：</label>
+        <div class="col-sm-9 ">
+            <input ng-model="SCUScore" class="form-control" onkeyup='this.value=this.value.replace(/\D/gi,"")' placeholder="平时成绩" id="Text1" type="text" />
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">考试成绩：</label>
+        <div class="col-sm-9 ">
+            <input ng-model="SCEScore" class="form-control" onkeyup='this.value=this.value.replace(/\D/gi,"")' placeholder="考试成绩" id="Text1" type="text" />
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">总评成绩：</label>
+        <div class="col-sm-9 ">
+            <input ng-model="SCAScore" class="form-control" onkeyup='this.value=this.value.replace(/\D/gi,"")' placeholder="总评成绩" id="Text1" type="text" />
+
+
+        </div>
+    </div>
+    
+    <div class="form-group text-center">
+        <button type="button"  ng-click="submit()"  class="btn btn-default btn-lg">修改</button>
+    </div>
+
+</form>

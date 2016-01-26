@@ -1,0 +1,35 @@
+
+#daohang{
+	background-color: white;
+	margin-bottom: 40px;
+	
+}
+#main{
+	min-height: 1500px;
+	margin-left:2000px;
+    margin-right:2000px;
+	width: 80%;
+}
+#foot{
+	background-color: #333333;
+	height: 300px;
+	margin:0px;
+	width: 100%;
+
+}
+#foot font{
+	color:white;
+}
+
+#main li{
+	
+}
+.nav-header{
+	font-size: 30px;
+
+}
+.pageNumber{
+    position:relative;
+    top:200px;
+}
+a{ cursor:pointer  }

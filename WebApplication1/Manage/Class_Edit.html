@@ -1,0 +1,43 @@
+﻿<form class="form-horizontal" ng-controller="Class_Edit" name="Class">
+
+    <div><h2 class="text-center">{{Submit}}班级</h2></div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">班级号：</label>
+        <div class="col-sm-9">
+
+            <input ng-model="CLNO" onkeyup="this.value=this.value.replace(/\D/g,'')" ng-change="find()" ng-disabled="isUpdate" class="form-control" name="CLNO" required placeholder="班级号(班级号前自动加CL)" id="Text1" type="text" />
+            <p ng-class="{ 'alert alert-danger' : Class.CLNO.$invalid && !Class.CLNO.$pristine }" ng-show="Class.CLNO.$invalid && !Class.CLNO.$pristine" class="help-block">You 班级号 is required.</p>
+            <p ng-class="{ 'alert alert-danger' : isCLNO }" ng-show="isCLNO" class="help-block">该班号已存在.</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2">班级名称：</label>
+        <div class="col-sm-9 ">
+
+            <input ng-model="CLName" class="form-control" name="CLName" required placeholder="班级名称" id="Text1" type="text" />
+            <p ng-class="{ 'alert alert-danger' : Class.CLName.$invalid && !Class.CLName.$pristine }" ng-show="Class.CLName.$invalid && !Class.CLName.$pristine" class="help-block">You 班级名称 is required.</p>
+            
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2">所属系：</label>
+        <div class="col-sm-9">
+            <select 
+                    class="form-control"
+                    name="DNO"
+                    ng-model="Department"
+                    ng-options="x.DNO as x.DName for x in dataset">
+                
+            </select>
+            <p ng-class="{ 'alert alert-danger' : !issDNO}" ng-show="!issDNO" class="help-block">You 系名称 is required.</p>
+            
+            
+        </div>
+    </div>
+    <div class="form-group text-center">
+        <button type="button" ng-model="Submit" ng-click="submit()" ng-disabled="Class.$invalid||isCLNO||!issDNO" class="btn btn-default btn-lg">{{Submit}}</button>
+    </div>
+
+</form>

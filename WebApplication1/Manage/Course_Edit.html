@@ -1,0 +1,99 @@
+﻿<form class="form-horizontal" ng-controller="Course_Edit" name="Course">
+
+    <div><h2 class="text-center">{{Submit}}课程</h2></div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">课程号：</label>
+        <div class="col-sm-9">
+
+            <input ng-model="CNO" ng-change="find()" onkeyup="this.value=this.value.replace(/\D/g,'')" ng-disabled="isUpdate" class="form-control" name="CNO" required placeholder="课程号(课程号前自动加C)" id="Text1" type="text" />
+            <p ng-class="{ 'alert alert-danger' : Course.CNO.$invalid && !Course.CNO.$pristine }" ng-show="Course.CNO.$invalid && !Course.CNO.$pristine" class="help-block">You 课程号 is required.</p>
+            <p ng-class="{ 'alert alert-danger' : isCNO }" ng-show="isCNO" class="help-block">该课程号已存在.</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2">课程名：</label>
+        <div class="col-sm-9 ">
+
+            <input ng-model="CName" class="form-control" name="CName" required placeholder="课程名" id="Text1" type="text" />
+            <p ng-class="{ 'alert alert-danger' : Course.CName.$invalid && !Course.CName.$pristine }" ng-show="Course.CName.$invalid && !Course.CName.$pristine" class="help-block">You 课程名 is required.</p>
+
+        </div>
+    </div>
+    
+    
+    <div class="form-group">
+        <label class="control-label col-sm-2">学时：</label>
+        <div class="col-sm-9 ">
+            <input ng-model="CHours" onkeyup="this.value=this.value.replace(/\D/g,'')" class="form-control" placeholder="学时" id="Text1" type="text" />
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">学分：</label>
+        <div class="col-sm-9 ">
+            <input ng-model="CCredit" onkeyup="this.value=this.value.replace(/\D/g,'')" name="CCredit" class="form-control" required placeholder="学分" id="Text1" type="text" />
+            <p ng-class="{ 'alert alert-danger' : Course.CCredit.$invalid && !Course.CCredit.$pristine }" ng-show="Course.CCredit.$invalid && !Course.CCredit.$pristine" class="help-block">You 学分is required.</p>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">上课时间：</label>
+        <div class="col-sm-9 ">
+            <input ng-model="CTime" class="form-control" placeholder="上课时间" id="Text1" type="text" />
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">上课学期：</label>
+        <div class="col-sm-9 ">
+            <select id="Select1" ng-model="CSemester">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+
+            </select>
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">上课地点：</label>
+        <div class="col-sm-9 ">
+            <input ng-model="CPlace" class="form-control" placeholder="上课地点" id="Text1" type="text" />
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">考试时间：</label>
+        <div class="col-sm-9 ">
+            <input ng-model="CExamTime" class="form-control" placeholder="考试时间" id="Text1" type="text" />
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">所属教师：</label>
+        <div class="col-sm-9">
+            <select class="form-control"
+                    name="TNO"
+                    ng-model="Teacher"
+                    ng-options="x.TNO as x.TName+'('+x.DName+')' for x in dataset"></select>
+            <p ng-class="{ 'alert alert-danger' : !issTNO}" ng-show="!issTNO" class="help-block">You 所属教师 is required.</p>
+
+
+        </div>
+    </div>
+    <div class="form-group text-center">
+        <button type="button" ng-model="Submit" ng-click="submit()" ng-disabled="Course.$invalid||isCNO||!issTNO" class="btn btn-default btn-lg">{{Submit}}</button>
+    </div>
+
+</form>

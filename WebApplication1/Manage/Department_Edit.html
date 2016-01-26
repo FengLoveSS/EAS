@@ -1,0 +1,34 @@
+﻿<form class="form-horizontal" ng-controller="Department_Edit" name="Department">
+
+    <div><h2 class="text-center">{{Submit}}系</h2></div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">系号：</label>
+        <div class="col-sm-9">
+
+            <input ng-model="DNO" ng-change="find()" onkeyup="this.value=this.value.replace(/\D/g,'')" ng-disabled="isUpdate" name="DNO" required class="form-control" placeholder="系号(系号前自动加D)" id="Text1" type="text" />
+            <p ng-class="{ 'alert alert-danger' : Department.DNO.$invalid && !Department.DNO.$pristine }" ng-show="Department.DNO.$invalid && !Department.DNO.$pristine" class="help-block">You 系号 is required.</p>
+            <p ng-class="{ 'alert alert-danger' : isDNO }" ng-show="isDNO" class="help-block">该系号已存在.</p>
+        </div>
+        
+        </div>
+    
+    <div class="form-group">
+        <label class="control-label col-sm-2">系名称：</label>
+        <div class="col-sm-9 ">
+            
+            <input ng-model="DName" name="DName"  required class="form-control" placeholder="系名称" id="Text1" type="text" />
+            <p ng-class="{ 'alert alert-danger' : Department.DName.$invalid && !Department.DName.$pristine }" ng-show="Department.DName.$invalid && !Department.DName.$pristine" class="help-block">You 系名称 is required.</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2">系简介：</label>
+        <div class="col-sm-9">
+            <textarea ng-model="DIntroduction" class="form-control" placeholder="系简介" id="TextArea1" rows="3" cols="20"></textarea>
+        </div>
+    </div>
+    <div class="form-group text-center">
+        <button type="button" ng-model="Submit" ng-click="submit()" ng-disabled="Department.$invalid||issDNO" class="btn btn-default btn-lg">{{Submit}}</button>
+    </div>
+
+</form>

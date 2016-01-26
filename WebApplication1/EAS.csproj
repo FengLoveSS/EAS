@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CB325129-2EA4-4131-8D71-1F1F6301E752}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication1</RootNamespace>
+    <AssemblyName>WebApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="asp.net\Department.cs" />
+    <Compile Include="asp.net\Server.asmx.cs">
+      <DependentUpon>Server.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="asp.net\ToJson.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="DTcms.Common\DTcms.Common.csproj">
+      <Project>{56213535-7fd9-4acd-a497-705670ce61dc}</Project>
+      <Name>DTcms.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="DTcms.DBUtility\DTcms.DBUtility.csproj">
+      <Project>{e2c9435b-cb68-465a-bdf9-333f2d75e81b}</Project>
+      <Name>DTcms.DBUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="asp.net\Server.asmx" />
+    <Content Include="bin\DTcms.Common.dll" />
+    <Content Include="bin\DTcms.Common.pdb" />
+    <Content Include="bin\DTcms.DBUtility.dll" />
+    <Content Include="bin\DTcms.DBUtility.pdb" />
+    <Content Include="bin\WebApplication1.dll" />
+    <Content Include="bin\WebApplication1.pdb" />
+    <Content Include="css\flat-ui.css" />
+    <Content Include="css\flat-ui.css.map" />
+    <Content Include="css\flat-ui.min.css" />
+    <Content Include="css\main.css" />
+    <Content Include="dist\css\bootstrap-theme.css" />
+    <Content Include="dist\css\bootstrap-theme.css.map" />
+    <Content Include="dist\css\bootstrap-theme.min.css" />
+    <Content Include="dist\css\bootstrap.css" />
+    <Content Include="dist\css\bootstrap.css.map" />
+    <Content Include="dist\css\bootstrap.min.css" />
+    <Content Include="dist\css\flat-ui.min.css" />
+    <Content Include="dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="dist\js\bootstrap.js" />
+    <Content Include="dist\js\bootstrap.min.js" />
+    <Content Include="dist\js\npm.js" />
+    <Content Include="DTcms.DBUtility.csproj" />
+    <Content Include="EAS.csproj.user" />
+    <Content Include="flat\aero%402x.png" />
+    <Content Include="flat\aero.css" />
+    <Content Include="flat\aero.png" />
+    <Content Include="flat\blue%402x.png" />
+    <Content Include="flat\blue.css" />
+    <Content Include="flat\blue.png" />
+    <Content Include="flat\flat%402x.png" />
+    <Content Include="flat\flat.css" />
+    <Content Include="flat\flat.png" />
+    <Content Include="flat\green%402x.png" />
+    <Content Include="flat\green.css" />
+    <Content Include="flat\green.png" />
+    <Content Include="flat\grey%402x.png" />
+    <Content Include="flat\grey.css" />
+    <Content Include="flat\grey.png" />
+    <Content Include="flat\orange%402x.png" />
+    <Content Include="flat\orange.css" />
+    <Content Include="flat\orange.png" />
+    <Content Include="flat\pink%402x.png" />
+    <Content Include="flat\pink.css" />
+    <Content Include="flat\pink.png" />
+    <Content Include="flat\purple%402x.png" />
+    <Content Include="flat\purple.css" />
+    <Content Include="flat\purple.png" />
+    <Content Include="flat\red%402x.png" />
+    <Content Include="flat\red.css" />
+    <Content Include="flat\red.png" />
+    <Content Include="flat\yellow%402x.png" />
+    <Content Include="flat\yellow.css" />
+    <Content Include="flat\yellow.png" />
+    <Content Include="flat\_all.css" />
+    <Content Include="Home.html" />
+    <Content Include="home2.html" />
+    <Content Include="HtmlPage1.html" />
+    <Content Include="iframe\1.html" />
+    <Content Include="img\1.jpg" />
+    <Content Include="img\2.jpg" />
+    <Content Include="img\3.jpg" />
+    <Content Include="Index.html" />
+    <Content Include="js\angular-ui-bootstrap.js" />
+    <Content Include="js\angular-ui-router.js" />
+    <Content Include="js\AngularJs.js" />
+    <Content Include="js\app.js" />
+    <Content Include="js\Controller_Class.js" />
+    <Content Include="js\Controller_Course.js" />
+    <Content Include="js\Controller_Department.js" />
+    <Content Include="js\Controller_Manage.js" />
+    <Content Include="js\Controller_Register.js" />
+    <Content Include="js\Controller_Report.js" />
+    <Content Include="js\Controller_Score.js" />
+    <Content Include="js\Controller_Select.js" />
+    <Content Include="js\Controller_Student.js" />
+    <Content Include="js\Controller_Teacher.js" />
+    <Content Include="js\flat-ui.js" />
+    <Content Include="js\flat-ui.min.js" />
+    <Content Include="js\icheck.js" />
+    <Content Include="js\jquery-2.1.4.min.js" />
+    <Content Include="js\url.js" />
+    <Content Include="Manage.html" />
+    <Content Include="manage\Class_Edit.html" />
+    <Content Include="manage\Class_List.html" />
+    <Content Include="manage\Course_Edit.html" />
+    <Content Include="manage\Course_List.html" />
+    <Content Include="manage\Department_Edit.html" />
+    <Content Include="manage\Department_List.html" />
+    <Content Include="manage\Student_Edit.html" />
+    <Content Include="manage\Student_List.html" />
+    <Content Include="manage\Teacher_List.html" />
+    <Content Include="manage\Teacher_Edit.html" />
+    <Content Include="obj\Debug\EAS.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\WebApplication1.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\WebApplication1.dll" />
+    <Content Include="obj\Debug\WebApplication1.pdb" />
+    <Content Include="Page\Page1.html" />
+    <Content Include="SC.html" />
+    <Content Include="SC\Score_Edit.html" />
+    <Content Include="SC\Score_List.html" />
+    <Content Include="SC\Select.html" />
+    <Content Include="Search.html" />
+    <Content Include="Search\Register.html" />
+    <Content Include="Search\Report.html" />
+    <Content Include="Test.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\WebApplication1.dll.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\EAS.csprojResolveAssemblyReference.cache" />
+    <Content Include="obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>32489</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:32489/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

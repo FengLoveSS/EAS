@@ -1,0 +1,36 @@
+<div class="container-fluid" >
+	<div class="row-fluid">
+		<div class="span12">
+			<h1 class="text-center">
+				教学管理系统
+			</h1>
+			<ul id="daohang" class="nav nav-tabs">
+                <tabset>
+                    
+                        <tab ui-sref=".Home"><tab-heading><span class="glyphicon glyphicon-home"></span>首页</tab-heading></tab>
+                    
+                    <tab  ui-sref=".Manage"><tab-heading><span class="glyphicon glyphicon-user"></span>信息管理</tab-heading></tab>
+                    
+                    <tab  ui-sref=".SC"><tab-heading><span class="glyphicon glyphicon-book"></span>选课系统</tab-heading></tab>
+                   
+                    <tab  ui-sref=".Search"><tab-heading><span class="glyphicon glyphicon-search"></span>成绩查询</tab-heading></tab>
+                    
+                </tabset>
+			</ul>
+		</div>
+	</div>
+<div class="row-fluid" >
+    <div class="span12">
+        <div >
+            <div ui-view="" style="min-height:500px" >
+            </div>
+        </div>
+    </div>
+	</div>
+	
+	<div class="row-fluid" >
+		<div class="col-xs-12" id="foot">
+			 <address> <font><strong>Twitter, Inc.</strong></font><br /> <font>795 Folsom Ave, Suite 600</font><br /> <font>San Francisco, CA 94107</font><br /> <abbr title="Phone"><font>P:</font></abbr><font> (123) 456-7890</font></address>
+		</div>
+	</div>
+</div>

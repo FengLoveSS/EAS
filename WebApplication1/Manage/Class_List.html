@@ -1,0 +1,63 @@
+﻿<div ng-controller="Class_List">
+    <div>
+        <a ui-sref="Index.Manage.Class_Edit"><span class="glyphicon glyphicon-plus"></span>新建</a>
+    </div>
+    <div class="form-group row">
+
+        <div class="col-sm-5"> </div>
+        <div class="col-sm-2">
+            <label class="control-label">班级所属系：</label>
+            <select class="form-control"
+                    name="DNO"
+                    ng-model="Department"
+                    ng-options="x.DNO as x.DName for x in dataset_Department" ng-change="select(page=1)">
+                
+                
+            </select>
+            
+
+
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+    
+    <div class="row" style="TEXT-ALIGN: center">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">查询班级号<input type="text" ng-model="CLNO" ng-change="select(page=1)" class="form-group"></div>
+        <div class="col-sm-5">查询班级名<input type="text" ng-model="CLName" ng-change="select(page=1)" class="form-group"></div>
+        <div class="col-sm-1"></div>
+    </div>	
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <table class="table-striped table-bordered col-sm-10">
+            <th width="10%">班级号</th>
+            <th width="30%">班级名称</th>
+            <th width="50%">系名</th>
+            <th width="10%">操作</th>
+            <tr ng-repeat="x in dataset">
+                <td>{{x.CLNO}}</td>
+                <td>{{x.CLName}}</td>
+                <td>{{x.DName}}</td>
+                <td><a ui-sref="Index.Manage.Class_Edit({CLNO:x.CLNO})">修改</a>    <a ng-click="delete(x.CLNO)">删除</a></td>
+            </tr>
+        </table>
+        <div class="col-sm-1"></div>
+    </div>	
+    <div class="row" ng-show="run" style="margin-top:50px">
+
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                <span class="">45% Complete</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            当前第{{page}}页   <span><a ng-show="page>1" ng-click="select(page=(page-1))">上一页</a></span><span><a ng-show="page<maxPage&&maxPage>1" ng-click="select(page=(page+1))">下一页</a></span>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>	
+    
+</div>

@@ -1,0 +1,86 @@
+﻿<!doctype html>  
+<html>  
+<head lang="zh-CN">  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<!-- Make sure that we can test against real IE8 --> 
+<meta http-equiv="X-UA-Compatible" content="IE=8" /> 
+<title>www.cnblogs.com</title> 
+    <script type="text/javascript" src="js/AngularJs.js"></script>
+    <script src="http://cdn.bootcss.com/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
+
+
+</head> 
+<body ng-app="myApp" style="background:#4A4A4A" class="row">
+    <div style="color:#fff; font-size:30px; font-weight:bold; text-shadow:3px 3px 3px #ccc;-webkit-text-shadow:3px 3px 3px #ccc; text-align:center; margin-top:30px;">FE-演示平台</div>
+    <section class="row">
+        <section ng-controller="dateDemo" class="col-md-6" style="float:none; margin:20px auto; background:#fff; padding:20px;">
+            <pre class="">选定的日期是：<em>{{dt | date:'fullDate'}}</em></pre> //{{}} 双花括号为angular的取值表达式
+            <h4>在线：</h4>
+            <section style="display:inline-block; min-height:240px;">
+                <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="wellwell-sm"></datepicker>
+            </section> // ng-model 绑定dt模块 ， min-date  最少日期  show-weeks= ture 显示周
+            <h4>弹出：</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="input-group">
+                        <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2014-12-30'" datepicker-options="dateOptions" date-disabled="disabled(date,mode)" ng-required="true" close-text="Close">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="">格式：</label>
+                    <select name="" id="" class="form-control" ng-model="format" ng-options="f for f in formats"><option value=""></option></select>  //ng-options  循环添加option
+                </div>
+            </div>
+            <hr>
+            <div>
+                <button type="button" class="btn btn-info btn-sm" ng-click="today()">今天</button>  //一堆点击事件没什么好说的
+                <button type="button" class="btn btn-sm btn-default" ng-click="dt = '2008-08-08'">2008-08-08</button>
+                <button type="button" class="btn btn-sm btn-danger" ng-click="clear()">清除</button>
+                <button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" tooltip="After today">闵日期</button>
+
+            </div>
+        </section>
+    </section>
+</body>
+
+</html>
+<script>
+
+    angular.module('myApp', ['ui.bootstrap']).controller('dateDemo', function ($scope) {
+        $scope.today = function () { // 创建一个方法，
+            $scope.dt = new Date(); // 定义一个属性来接收当天日期
+        };
+        $scope.today(); // 运行today方法
+        $scope.clear = function () {  //当运行clear的时候将dt置为空
+            $scope.dt = null;
+        }
+        $scope.open = function ($event) {  // 创建open方法 。 下面默认行为并将opened 设为true
+            $event.preventDefault();
+            $event.stopPropagation();
+            $scope.opened = true;
+        }
+        $scope.disabled = function (date, mode) {
+            return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6))
+        }
+        $scope.toggleMin = function () {
+            $scope.minDate = $scope.minDate ? null : new Date(); //3元表达式，没啥好说的
+        }
+        $scope.toggleMin();
+        $scope.dateOptions = {
+            formatYear: 'yy',
+            startingDay: 1
+        }
+        $scope.formats = ['dd-MMMM-yyyy', 'yyy/MM/dd', 'dd.MM.yyyy', 'shortDate']; //日期显示格式
+        $scope.format = $scope.formats[0];  // 将formats的第0项设为默认显示格式
+
+    })
+</script>
